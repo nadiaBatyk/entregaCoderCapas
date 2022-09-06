@@ -8,7 +8,7 @@ const { engine } = require("express-handlebars");
 const { Server: ioServer } = require("socket.io");
 const http = require("http");
 const ContenedorMensajes = require("./persistencia/contenedor");
-const mongo = require('./config/DBconfig/DBConfig')
+const mongo = require("./config/DBconfig/DBConfig");
 const mensajeSchema = require("./schemas/mensajeSchema");
 const { inspect } = require("util");
 const session = require("express-session");
@@ -18,7 +18,10 @@ const parseArgs = require("minimist");
 const compression = require("compression");
 const logger = require("./config/winstonConfig");
 const sessionConfig = require("./config/DBconfig/MongosessionConfig");
-const { getProductosController, addNewProduct } = require("./controllers/productosControllers");
+const {
+  getProductosController,
+  addNewProduct,
+} = require("./controllers/productosControllers");
 const app = express();
 
 //SERVIDOR HTTP CON FUNCIONALIDADES DE APP (EXPRESS)
@@ -30,9 +33,7 @@ const socketServer = new ioServer(httpServer);
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  session(sessionConfig)
-);
+app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 //middleware para cargar archivos
@@ -56,23 +57,26 @@ app.set("views", "/views");
 
 const mensajesDB = new ContenedorMensajes("mensajes", mensajeSchema);
 
+socketServer.on("connection", async (socket) => {
+  try {
+    const productos = await getProductosController();
 
-socketServer.on("connection", (socket) => {
-  getProductosController
-    .then((productos) => {
-      socket.emit("datosTabla", productos);
-    })
-    
+    socket.emit("datosTabla", productos);
+  } catch (error) {
+    logger.error(error);
+  }
+
   socket.on("nuevo-producto", async (producto) => {
-    await addNewProduct(producto)
-    getProductosController
-      .then((productos) => {
-        socketServer.sockets.emit("datosTabla", productos);
-      })
-      
+    try {
+      await addNewProduct(producto);
+      const productos = await getProductosController();
+      socketServer.sockets.emit("datosTabla", productos);
+    } catch (error) {
+      logger.error(error);
+    }
   });
 
-  mensajesDB
+  /*   mensajesDB
     .getAllMessages()
     .then((res) => {
       //console.log(JSON.stringify(res));
@@ -82,9 +86,9 @@ socketServer.on("connection", (socket) => {
     })
     .catch((err) => {
       logger.error(err);
-    });
+    }); */
 
-  socket.on("nuevo-mensaje", async (mensaje) => {
+  /* socket.on("nuevo-mensaje", async (mensaje) => {
     console.log(mensaje);
     await mensajesDB.save(mensaje);
     await mensajesDB
@@ -96,7 +100,7 @@ socketServer.on("connection", (socket) => {
       .catch((err) => {
         logger.error(err);
       });
-  });
+  }); */
 });
 
 function logWinston(req, res, next) {
@@ -121,7 +125,6 @@ app.use((err, req, res, next) => {
   }
 }); */
 //PUERTO
-
 
 const PORT = process.env.PORT || 8080;
 const server = httpServer.listen(PORT, () => {
