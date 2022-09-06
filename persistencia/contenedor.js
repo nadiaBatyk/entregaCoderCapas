@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
+const mongoConfig = require("../config/DBconfig/DBConfig");
 const { ErrorCustom } = require("../errorCustom");
 
-module.exports = class ContenedorMensajes {
+mongoose.connect(mongoConfig.URL,mongoConfig.options)
+
+module.exports = class Contenedor {
   constructor(collectionName, schema) {
     this.collection = mongoose.model(collectionName, schema);
   }
@@ -20,7 +23,7 @@ module.exports = class ContenedorMensajes {
     }
   }
 
-  async getAllMessages() {
+  async getAll() {
     try {
       const allData = await this.collection.find({});
 

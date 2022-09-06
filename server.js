@@ -7,10 +7,8 @@ const randomsRutas = require("./routes/randomsRutas");
 const { engine } = require("express-handlebars");
 const { Server: ioServer } = require("socket.io");
 const http = require("http");
-const ContenedorMensajes = require("./persistencia/mensajesContainer");
-const ContenedorProductos = require("./persistencia/productosContainer");
-const { knexProducts } = require("./config/DBconfig/DBconfigProductos");
-const mongo = require('./config/DBconfig/DBconfigMensajes')
+const ContenedorMensajes = require("./persistencia/contenedor");
+const mongo = require('./config/DBconfig/DBConfig')
 const mensajeSchema = require("./schemas/mensajeSchema");
 const { inspect } = require("util");
 const session = require("express-session");
@@ -57,7 +55,6 @@ app.engine(
 app.set("views", "/views");
 
 const mensajesDB = new ContenedorMensajes("mensajes", mensajeSchema);
-const productosDB = new ContenedorProductos(knexProducts, "productos");
 
 
 socketServer.on("connection", (socket) => {

@@ -1,7 +1,8 @@
-const { knexProducts } = require("../config/DBconfig/DBconfigProductos");
-const ContenedorProductos = require("../persistencia/productosContainer");
 
-const productosDB = new ContenedorProductos(knexProducts, "productos");
+const Contenedor = require("../persistencia/contenedor");
+const productoSchema = require("../schemas/productoSchema");
+
+const productosDB = new Contenedor("productos",productoSchema);
 async function obtenerProductos() {
   return await productosDB.getAll();
 }
