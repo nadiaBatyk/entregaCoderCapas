@@ -1,5 +1,5 @@
 const express = require("express");
-require("dotenv").config({ path: "./DBconfig/.env" });
+require("dotenv").config({ path: "./config/DBconfig/.env" });
 const rutasProducto = require("./routes/productosRutas");
 const loginRutas = require("./routes/loginRutas");
 const infoRutas = require("./routes/infoRutas");
@@ -8,9 +8,9 @@ const { engine } = require("express-handlebars");
 const { Server: ioServer } = require("socket.io");
 const http = require("http");
 const ContenedorMensajes = require("./contenedores/mensajesContainer");
-const { knex } = require("./DBconfig/DBconfigMensajes");
 const ContenedorProductos = require("./contenedores/productosContainer");
-const { knexProducts } = require("./DBconfig/DBconfigProductos");
+const { knexProducts } = require("./config/DBconfig/DBconfigProductos");
+const mongo = require('./config/DBconfig/DBconfigMensajes')
 const mensajeSchema = require("./schemas/mensajeSchema");
 const { normalize, schema } = require("normalizr");
 const { inspect } = require("util");
@@ -20,7 +20,7 @@ const passport = require("passport");
 const pass = require("./passport/local");
 const parseArgs = require("minimist");
 const compression = require("compression");
-const logger = require("./winstonConfig");
+const logger = require("./config/winstonConfig");
 const app = express();
 
 //SERVIDOR HTTP CON FUNCIONALIDADES DE APP (EXPRESS)
