@@ -7,20 +7,20 @@ const randomsRutas = require("./routes/randomsRutas");
 const { engine } = require("express-handlebars");
 const { Server: ioServer } = require("socket.io");
 const http = require("http");
-const ContenedorMensajes = require("./contenedores/mensajesContainer");
-const ContenedorProductos = require("./contenedores/productosContainer");
+const ContenedorMensajes = require("./persistencia/mensajesContainer");
+const ContenedorProductos = require("./persistencia/productosContainer");
 const { knexProducts } = require("./config/DBconfig/DBconfigProductos");
 const mongo = require('./config/DBconfig/DBconfigMensajes')
 const mensajeSchema = require("./schemas/mensajeSchema");
-const { normalize, schema } = require("normalizr");
 const { inspect } = require("util");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const pass = require("./passport/local");
 const parseArgs = require("minimist");
 const compression = require("compression");
 const logger = require("./config/winstonConfig");
+const sessionConfig = require("./config/DBconfig/MongosessionConfig");
+const { getProductosController, addNewProduct } = require("./controllers/productosControllers");
 const app = express();
 
 //SERVIDOR HTTP CON FUNCIONALIDADES DE APP (EXPRESS)
@@ -33,16 +33,7 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
-  session({
-    store: MongoStore.create({
-      mongoUrl: `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@cluster0.7ddl8ks.mongodb.net/session-user?retryWrites=true&w=majority`,
-      mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
-    }),
-    cookie: { maxAge: 10000 * 60 },
-    secret: "pass",
-    resave: false,
-    saveUninitialized: false,
-  })
+  session(sessionConfig)
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -67,48 +58,21 @@ app.set("views", "/views");
 
 const mensajesDB = new ContenedorMensajes("mensajes", mensajeSchema);
 const productosDB = new ContenedorProductos(knexProducts, "productos");
-const normalizar = (data) => {
-  //console.log('SOY LA DATAAA',data);
 
-  const schemaAuthor = new schema.Entity(
-    "author",
-    {},
-    { idAttribute: "email" }
-  );
-  const schemaMensaje = new schema.Entity(
-    "mensaje",
-    {
-      author: schemaAuthor,
-    },
-    { idAttribute: "_id" }
-  );
-  const mensajesSchema = new schema.Entity("mensajes", {
-    mensajes: [schemaMensaje],
-  });
-  const dataSinNormalizar = { id: "mensajes", mensajes: data };
-  return normalize(dataSinNormalizar, mensajesSchema);
-};
 
 socketServer.on("connection", (socket) => {
-  productosDB
-    .getAll()
+  getProductosController
     .then((productos) => {
-      console.log(productos);
       socket.emit("datosTabla", productos);
     })
-    .catch((err) => {
-      logger.error(err);
-    });
+    
   socket.on("nuevo-producto", async (producto) => {
-    await productosDB.save(producto);
-    productosDB
-      .getAll()
+    await addNewProduct(producto)
+    getProductosController
       .then((productos) => {
         socketServer.sockets.emit("datosTabla", productos);
       })
-      .catch((err) => {
-        logger.error(err);
-      });
+      
   });
 
   mensajesDB
@@ -161,7 +125,6 @@ app.use((err, req, res, next) => {
 }); */
 //PUERTO
 
-const arg = parseArgs(process.argv.slice(2));
 
 const PORT = process.env.PORT || 8080;
 const server = httpServer.listen(PORT, () => {
