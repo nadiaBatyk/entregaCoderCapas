@@ -7,9 +7,7 @@ const randomsRutas = require("./routes/randomsRutas");
 const { engine } = require("express-handlebars");
 const { Server: ioServer } = require("socket.io");
 const http = require("http");
-const ContenedorMensajes = require("./persistencia/contenedor");
 const mongo = require("./config/DBconfig/DBConfig");
-const mensajeSchema = require("./schemas/mensajeSchema");
 const { inspect } = require("util");
 const session = require("express-session");
 const passport = require("passport");
@@ -22,6 +20,11 @@ const {
   getProductosController,
   addNewProduct,
 } = require("./controllers/productosControllers");
+const {
+  getMensajesController,
+  sendNewMessage,
+} = require("./controllers/mensajeController");
+const normalizar = require("./servicios/normalizr");
 const app = express();
 
 //SERVIDOR HTTP CON FUNCIONALIDADES DE APP (EXPRESS)
@@ -55,8 +58,6 @@ app.engine(
 //DONDE ESTAN LOS ARCHIVOS DE PLANTILLA
 app.set("views", "/views");
 
-const mensajesDB = new ContenedorMensajes("mensajes", mensajeSchema);
-
 socketServer.on("connection", async (socket) => {
   try {
     const productos = await getProductosController();
@@ -75,31 +76,24 @@ socketServer.on("connection", async (socket) => {
     }
   });
 
-  /*   mensajesDB
-    .getAllMessages()
-    .then((res) => {
-      //console.log(JSON.stringify(res));
-      const data = normalizar(JSON.parse(JSON.stringify(res)));
-      console.log("DATA NORMALIZADA", inspect(data, false, 12, true));
-      socket.emit("datosMensajes", data);
-    })
-    .catch((err) => {
-      logger.error(err);
-    }); */
+  try {
+    const mensajes = await getMensajesController();
+    const data = normalizar(JSON.parse(JSON.stringify(mensajes)));
+    socket.emit("datosMensajes", data);
+  } catch (error) {
+    logger.error(error);
+  }
 
-  /* socket.on("nuevo-mensaje", async (mensaje) => {
-    console.log(mensaje);
-    await mensajesDB.save(mensaje);
-    await mensajesDB
-      .getAllMessages()
-      .then((res) => {
-        const data = normalizar(JSON.parse(JSON.stringify(res)));
-        socketServer.sockets.emit("datosMensajes", data);
-      })
-      .catch((err) => {
-        logger.error(err);
-      });
-  }); */
+  socket.on("nuevo-mensaje", async (mensaje) => {
+    try {
+      await sendNewMessage(mensaje);
+      const mensajes = await getMensajesController();
+      const data = normalizar(JSON.parse(JSON.stringify(mensajes)));
+      socket.emit("datosMensajes", data);
+    } catch (error) {
+      logger.error(error);
+    }
+  });
 });
 
 function logWinston(req, res, next) {

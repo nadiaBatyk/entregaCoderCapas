@@ -1,6 +1,6 @@
 
 const { normalize, schema } = require("normalizr");
-const normalizar = (data) => {
+function normalizar (data) {
     //console.log('SOY LA DATAAA',data);
   
     const schemaAuthor = new schema.Entity(

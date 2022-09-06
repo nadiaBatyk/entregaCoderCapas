@@ -1,10 +1,12 @@
-const { obtenerMensajes, agregarMensaje } = require("../servicios/mensajesServicio")
-
+const {
+  obtenerMensajes,
+  agregarMensaje,
+} = require("../servicios/mensajesServicio");
 
 async function getMensajesController() {
-  return obtenerMensajes()
+  return obtenerMensajes();
 }
-async function sendNewMessage(mensaje){
-await agregarMensaje(mensaje)
+async function sendNewMessage(mensaje) {
+  await agregarMensaje(mensaje);
 }
-module.exports = { getMensajesController,sendNewMessage}
+module.exports = { getMensajesController, sendNewMessage };
