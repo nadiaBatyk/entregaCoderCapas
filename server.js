@@ -25,6 +25,7 @@ const {
   sendNewMessage,
 } = require("./controllers/mensajeController");
 const normalizar = require("./servicios/normalizr");
+const logWinston = require("./utils/logger");
 const app = express();
 
 //SERVIDOR HTTP CON FUNCIONALIDADES DE APP (EXPRESS)
@@ -96,10 +97,7 @@ socketServer.on("connection", async (socket) => {
   });
 });
 
-function logWinston(req, res, next) {
-  logger.info(`Ruta ${req.originalUrl}, method ${req.method}`);
-  next();
-}
+
 //RUTAS
 app.use("/productos", logWinston, rutasProducto);
 app.use("/info", logWinston, infoRutas);
