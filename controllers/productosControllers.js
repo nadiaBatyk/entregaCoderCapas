@@ -1,4 +1,4 @@
-const logger = require("../config/winstonConfig");
+
 const { obtenerProductos, agregarProducto } = require("../servicios/productosServicio");
 
 async function getProductosController() {

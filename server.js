@@ -60,7 +60,6 @@ const mensajesDB = new ContenedorMensajes("mensajes", mensajeSchema);
 socketServer.on("connection", async (socket) => {
   try {
     const productos = await getProductosController();
-
     socket.emit("datosTabla", productos);
   } catch (error) {
     logger.error(error);
