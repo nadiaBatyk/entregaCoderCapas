@@ -1,0 +1,210 @@
+Statistical profiling result from info-v8.log, (10134 ticks, 5 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   9488   93.6%          C:\Windows\SYSTEM32\ntdll.dll
+    577    5.7%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      8    0.1%   11.6%  LazyCompile: *resolve node:path:158:10
+      4    0.0%    5.8%  LazyCompile: *next C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      3    0.0%    4.3%  LazyCompile: *next C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\router\index.js:177:16
+      2    0.0%    2.9%  LazyCompile: *wrap C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      2    0.0%    2.9%  LazyCompile: *parse C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      2    0.0%    2.9%  LazyCompile: *normalizeString node:path:66:25
+      2    0.0%    2.9%  LazyCompile: *appendToBuffer C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:42:42
+      2    0.0%    2.9%  LazyCompile: *<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\source-map\lib\source-node.js:174:29
+      2    0.0%    2.9%  LazyCompile: *<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:331:47
+      1    0.0%    1.4%  RegExp: ^(?:'(\\[']|[^'])*')
+      1    0.0%    1.4%  RegExp: [ \t]+$
+      1    0.0%    1.4%  RegExp: (^|\r?\n)\s*?$
+      1    0.0%    1.4%  RegExp: (?:\r\n?|\n).*
+      1    0.0%    1.4%  LazyCompile: *toString node:buffer:783:46
+      1    0.0%    1.4%  LazyCompile: *step C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1    0.0%    1.4%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    0.0%    1.4%  LazyCompile: *opcode C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:347:26
+      1    0.0%    1.4%  LazyCompile: *normalize node:path:304:12
+      1    0.0%    1.4%  LazyCompile: *makeAbs C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\glob\common.js:203:18
+      1    0.0%    1.4%  LazyCompile: *isWindowsDeviceRoot node:path:60:29
+      1    0.0%    1.4%  LazyCompile: *extend C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\utils.js:28:16
+      1    0.0%    1.4%  LazyCompile: *emit node:events:474:44
+      1    0.0%    1.4%  LazyCompile: *deserializeObject C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\bson\lib\parser\deserializer.js:65:27
+      1    0.0%    1.4%  LazyCompile: *anonymous C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      1    0.0%    1.4%  LazyCompile: *__awaiter C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:18:54
+      1    0.0%    1.4%  LazyCompile: *SourceNode_walk C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\source-map\lib\source-node.js:221:53
+      1    0.0%    1.4%  LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      1    0.0%    1.4%  LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      1    0.0%    1.4%  LazyCompile: *Hash node:internal/crypto/hash:58:14
+      1    0.0%    1.4%  LazyCompile: *<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      1    0.0%    1.4%  Function: ^realpathSync node:fs:2412:22
+      1    0.0%    1.4%  Function: ^readFileAfterStat node:fs:326:27
+      1    0.0%    1.4%  Function: ^parse C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\content-type\index.js:106:16
+      1    0.0%    1.4%  Function: ^once C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\once\once.js:21:15
+      1    0.0%    1.4%  Function: ^lookupProperty C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\runtime.js:118:44
+      1    0.0%    1.4%  Function: ^listOnTimeout node:internal/timers:507:25
+      1    0.0%    1.4%  Function: ^get node:internal/streams/duplex:94:8
+      1    0.0%    1.4%  Function: ^fromStringFast node:buffer:413:24
+      1    0.0%    1.4%  Function: ^createError C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\http-errors\index.js:49:22
+      1    0.0%    1.4%  Function: ^canBeRequiredByUsers node:internal/bootstrap/loaders:240:30
+      1    0.0%    1.4%  Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      1    0.0%    1.4%  Function: ^ContentStatement C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:228:46
+      1    0.0%    1.4%  Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\helpers\each.js:75:19
+      1    0.0%    1.4%  Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:396:34
+      1    0.0%    1.4%  Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:366:57
+      1    0.0%    1.4%  Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:30:40
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     64    0.6%   92.8%  JavaScript
+      0    0.0%    0.0%  C++
+     23    0.2%   33.3%  GC
+  10065   99.3%          Shared libraries
+      5    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   9488   93.6%  C:\Windows\SYSTEM32\ntdll.dll
+
+    577    5.7%  C:\Program Files\nodejs\node.exe
+    383   66.4%    C:\Program Files\nodejs\node.exe
+     84   21.9%      Function: ^compileFunction node:vm:308:25
+     84  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+     45   53.6%          Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+     44   97.8%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    2.2%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+     39   46.4%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+     39  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+     32    8.4%      Function: ^realpathSync node:fs:2412:22
+     32  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+     31   96.9%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+     17   54.8%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+     13   41.9%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      1    3.2%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      1    3.1%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+     24    6.3%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+     21   87.5%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+     21  100.0%          Function: ^Socket._writeGeneric node:net:769:42
+     21  100.0%            Function: ^Socket._write node:net:806:35
+      3   12.5%        LazyCompile: *_write node:internal/streams/writable:283:16
+      3  100.0%          Function: ^Writable.write node:internal/streams/writable:333:36
+      3  100.0%            Function: ^log C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\winston\lib\winston\transports\console.js:44:6
+     19    5.0%      Function: ^stat node:internal/modules/cjs/loader:151:14
+     10   52.6%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      6   60.0%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:494:28
+      6  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      4   40.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      4  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      9   47.4%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      8   88.9%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      8  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1   11.1%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+     17    4.4%      C:\Program Files\nodejs\node.exe
+      3   17.6%        Function: ^fromString C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\utils.js:370:22
+      3  100.0%          Function: ^ns C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\utils.js:348:12
+      2   66.7%            Function: ^measureRoundTripTime C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\sdam\monitor.js:287:30
+      1   33.3%            LazyCompile: ~measureRoundTripTime C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\sdam\monitor.js:287:30
+      1    5.9%        LazyCompile: ~s C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\@faker-js\faker\dist\cjs\locales\ko\address\index.js:1:259
+      1  100.0%          LazyCompile: ~o C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\@faker-js\faker\dist\cjs\locales\ko\address\index.js:1:432
+      1  100.0%            Function: ~<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\@faker-js\faker\dist\cjs\locales\ko\address\index.js:1:1
+      1    5.9%        LazyCompile: ~isNextWhitespace C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\whitespace-control.js:165:26
+      1  100.0%          LazyCompile: ~WhitespaceControl.Program C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\whitespace-control.js:19:48
+      1  100.0%            LazyCompile: ~accept C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\visitor.js:57:26
+      1    5.9%        LazyCompile: ~executeWithoutEncryptedFieldsCheck C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\operations\create_collection.js:74:39
+      1  100.0%          LazyCompile: ~<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\operations\create_collection.js:39:10
+      1  100.0%            LazyCompile: ~execute C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\operations\create_collection.js:38:12
+      1    5.9%        LazyCompile: ~<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\cmap\connect.js:78:43
+      1  100.0%          LazyCompile: ~prepareHandshakeDocument C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\cmap\connect.js:146:34
+      1  100.0%            LazyCompile: ~performInitialHandshake C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\cmap\connect.js:62:33
+      1    5.9%        LazyCompile: *quotedString C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      1  100.0%          Function: ^pushSource C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      1  100.0%            Function: ^append C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:394:26
+      1    5.9%        Function: ~<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    5.9%        Function: ^splitRoot node:fs:2362:33
+      1  100.0%          Function: ^realpathSync node:fs:2412:22
+      1  100.0%            Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1    5.9%        Function: ^setWriteHeadHeaders C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\on-headers\index.js:105:30
+      1  100.0%          Function: ^writeHead C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\on-headers\index.js:28:29
+      1  100.0%            Function: ^writeHead C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\on-headers\index.js:28:29
+      1    5.9%        Function: ^realpathSync node:fs:2412:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1    5.9%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      1  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1  100.0%            Function: ^trySelf node:internal/modules/cjs/loader:441:17
+      1    5.9%        Function: ^expressInit C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\middleware\init.js:29:30
+      1  100.0%          LazyCompile: *trim_prefix C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\router\index.js:293:23
+      1  100.0%            LazyCompile: *next C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\router\index.js:177:16
+      1    5.9%        Function: ^databaseNamespace C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\utils.js:430:27
+      1  100.0%          Function: ^Msg C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\cmap\commands.js:469:16
+      1  100.0%            Function: ^command C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\mongodb\lib\cmap\connection.js:254:12
+      1    5.9%        Function: ^compileFunction node:vm:308:25
+      1  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1057:37
+      1    5.9%        Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:208:81
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express-handlebars\dist\express-handlebars.js:201:47
+      9    2.3%      Function: ^openSync node:fs:576:18
+      9  100.0%        Function: ^readFileSync node:fs:450:22
+      9  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      6   66.7%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      3   33.3%            LazyCompile: *Module.load node:internal/modules/cjs/loader:969:33
+      7    1.8%      Function: ^statSync node:fs:1530:18
+      7  100.0%        Function: ^tryStat C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\view.js:174:17
+      7  100.0%          Function: ^resolve C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\view.js:146:42
+      7  100.0%            Function: ^lookup C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\view.js:104:40
+      6    1.6%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4   66.7%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1   25.0%          Function: ~<anonymous> node:tls:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:internal/crypto/cipher:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:_http_client:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2   33.3%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      2  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      2  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      5    1.3%      Function: ^cpus node:os:133:14
+      5  100.0%        Function: ^<anonymous> C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\routes\infoRutas.js:14:17
+      5  100.0%          Function: ^handle C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\router\layer.js:86:49
+      5  100.0%            Function: ^next C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\express\lib\router\route.js:116:16
+      4    1.0%      LazyCompile: *wrap C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      1   25.0%        LazyCompile: *setupHelper C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:1020:36
+      1  100.0%          Function: ^invokeKnownHelper C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:682:48
+      1  100.0%            LazyCompile: *compile C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   25.0%        LazyCompile: *replaceStack C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:892:38
+      1  100.0%          Function: ^resolvePath C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:492:36
+      1  100.0%            Function: ^lookupData C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:482:34
+      1   25.0%        LazyCompile: *invokeAmbiguous C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1  100.0%          LazyCompile: *compile C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%            LazyCompile: *compileChildren C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:805:44
+      1   25.0%        LazyCompile: *aliasable C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:1006:32
+      1  100.0%          Function: ^invokeAmbiguous C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1  100.0%            LazyCompile: *compile C:\Users\nadia\OneDrive\Documents\programacion\Backend-Coder\entrega-logs\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      4    1.0%      Function: ^readSync node:fs:684:18
+      4  100.0%        Function: ^tryReadSync node:fs:429:21
+      4  100.0%          Function: ^readFileSync node:fs:450:22
+      3   75.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1   25.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      9    1.6%    LazyCompile: *compileFunction node:vm:308:25
+      9  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+      9  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      9  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      9  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+
